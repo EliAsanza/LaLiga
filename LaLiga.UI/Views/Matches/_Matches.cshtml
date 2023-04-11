@@ -1,0 +1,41 @@
+﻿@using LaLiga.Domain.Models;
+@using LaLiga.Domain.Models.Matches;
+@model IEnumerable<MatchesViewModel>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container mt-3">
+    <h2>Matches</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>MatchDate</th>
+                    <th>Local</th>
+                    <th>Visitor</th>
+                    <th>Result</th>
+                    <th>Winner</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var match in Model)
+                    {
+                        <tr>
+                            <td>@match.MatchDate.ToString("yyyy/mm/dd")</td>
+                            <td>@match.LocalTeam</td>
+                            <td>@match.VisitorTeam</td>
+                            <td>@match.LocalScore - @match.VisitorScore</td>
+                            <td>@match.Winner</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
